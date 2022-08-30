@@ -174,3 +174,23 @@ html {
 .area_guage .tick.bg_red {
   background-color: red;
 }
+
+.draw_canvas {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+}
+
+.line {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  width: 200px;
+  height: 5px;
+  background-color: blue;
+  z-index: 99;
+  transform-origin: left;
+  transform: rotate(-175deg);
+}

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
-import { Step1Page, Step2Page, Step3Page, Step4Page } from "./pages"
+import React, { useEffect, useState } from "react";
+import { Step1Page, Step2Page, Step3Page, Step4Page } from "./pages";
 
-import { TransitionGroup, CSSTransition } from "react-transition-group"
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import {
   BrowserRouter,
   Switch,
@@ -10,37 +10,37 @@ import {
   Link,
   useLocation,
   useHistory,
-} from "react-router-dom"
-import "./App.css"
-import "./App2.css"
+} from "react-router-dom";
+import "./App.css";
+import "./App2.css";
 
 function App() {
-  const [direction, setDirection] = useState<string | null>(null)
-  const location = useLocation()
-  const history = useHistory()
+  const [direction, setDirection] = useState<string | null>(null);
+  const location = useLocation();
+  const history = useHistory();
 
   const onBack = () => {
-    setDirection("left")
-  }
+    setDirection("left");
+  };
 
   const onNext = () => {
-    setDirection("right")
-  }
+    setDirection("right");
+  };
 
   useEffect(() => {
     if (direction === "left") {
-      history.goBack()
+      history.goBack();
     }
     if (direction === "right") {
-      if (location.pathname === "step4") return
+      if (location.pathname === "step4") return;
       else {
-        const arr = ["/step1", "/step2", "/step3", "/step4"]
-        const index = arr.findIndex((item) => item === location.pathname)
-        history.push(arr[index + 1])
+        const arr = ["/step1", "/step2", "/step3", "/step4"];
+        const index = arr.findIndex((item) => item === location.pathname);
+        history.push(arr[index + 1]);
       }
     }
-    setDirection(null)
-  }, [direction, history, location])
+    setDirection(null);
+  }, [direction, history, location]);
 
   return (
     <div style={{ height: "100%" }}>
@@ -85,7 +85,7 @@ function App() {
         <li onClick={onNext}>앞으로</li>
       </ul>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
